@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#172554">
+<title>Twinverse Daily Follow-up</title>
+<style>
+:root{--bg:#f4f7ff;--ink:#172033;--muted:#65718b;--navy:#172554;--blue:#2563eb;--teal:#0f9f9a;--gold:#f59e0b;--pink:#e879f9;--card:#fff;--line:#e1e7f2;--green:#15803d;--red:#b91c1c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0,#dbeafe 0,transparent 30%),radial-gradient(circle at 0 40%,#fce7f3 0,transparent 24%),var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}
+header{background:linear-gradient(125deg,#172554,#3730a3 55%,#0f766e);color:#fff;padding:22px 16px 20px;border-radius:0 0 25px 25px;box-shadow:0 8px 24px #17255422}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:1100px;margin:auto}.brand{font-weight:900;letter-spacing:.4px;font-size:clamp(19px,4vw,28px)}.tag{font-size:12px;color:#dbeafe;margin-top:4px}.datepill{border:1px solid #ffffff55;background:#ffffff18;border-radius:13px;padding:8px 10px;font-size:12px;white-space:nowrap}
+.hero{max-width:1100px;margin:20px auto 0}.hero h1{font-size:clamp(24px,5vw,38px);line-height:1.08;margin:0 0 8px}.hero p{margin:0;color:#e0e7ff;max-width:650px;font-size:14px}
+main{max-width:1100px;margin:18px auto;padding:0 13px 40px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;box-shadow:0 3px 12px #17255408}.stat b{display:block;font-size:23px;color:var(--navy)}.stat span{font-size:11px;color:var(--muted)}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.search{flex:1;min-width:180px;border:1px solid var(--line);border-radius:13px;padding:12px 14px;background:#fff;font:inherit}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:750;background:var(--navy);color:#fff;cursor:pointer;font:inherit;font-weight:700}.btn.secondary{background:#e0e7ff;color:#1e3a8a}.btn.teal{background:#ccfbf1;color:#115e59}.btn.danger{background:#fee2e2;color:#991b1b}.section{margin:18px 0}.sectionhead{display:flex;align-items:center;gap:10px;margin:0 0 10px}.sectionhead .num{width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,#dbeafe,#ede9fe);display:grid;place-items:center;font-weight:900;color:#3730a3}.sectionhead h2{font-size:20px;margin:0}.sectionhead p{font-size:12px;color:var(--muted);margin:2px 0 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.project{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px;min-width:0;box-shadow:0 4px 14px #17255407}.projecttop{display:flex;align-items:flex-start;gap:10px}.emoji{width:37px;height:37px;flex:0 0 37px;border-radius:12px;background:#f1f5f9;display:grid;place-items:center;font-size:19px}.project h3{font-size:14px;line-height:1.3;margin:1px 0 4px}.project small{font-size:11px;color:var(--muted)}.open{width:100%;margin-top:12px;text-align:left;background:#eef2ff;color:#273c86;border:1px solid #dbe4ff;border-radius:11px;padding:10px 11px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:750;cursor:pointer}.open:active,.btn:active{transform:scale(.99)}.sublist{display:grid;gap:7px;margin-top:10px}.subbtn{width:100%;text-align:left;border:1px solid #e6eaf4;background:#f8faff;border-radius:10px;padding:10px;display:flex;gap:8px;align-items:center;justify-content:space-between;color:#27324b;font-size:12px;cursor:pointer}.subbtn .label{min-width:0}.subbtn .arrow{color:#2563eb;font-weight:900}.hidden{display:none!important}
+.page{display:none}.page.active{display:block}.pagecard{background:#fff;border:1px solid var(--line);border-radius:19px;padding:17px;box-shadow:0 8px 28px #17255410}.backrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.page h2{margin:0;font-size:24px}.crumb{font-size:12px;color:var(--muted);margin:5px 0 16px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#475569}.field input,.field select,.field textarea{width:100%;border:1px solid #d9e1ef;border-radius:11px;padding:11px 12px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}textarea{min-height:92px;resize:vertical}.checkrow{display:flex;gap:8px;align-items:center;background:#f8fafc;border:1px solid var(--line);padding:12px;border-radius:12px;font-size:13px}.pageactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.savedhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:20px 0 10px}.savedhead h3{margin:0;font-size:17px}.record{border:1px solid var(--line);border-radius:13px;padding:12px;margin:9px 0;background:#fbfdff}.recordtop{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.record h4{margin:0 0 4px;font-size:14px}.record p{margin:5px 0;color:#475569;font-size:12px;white-space:pre-wrap}.badge{display:inline-block;font-size:10px;font-weight:800;padding:4px 7px;border-radius:99px;background:#e0e7ff;color:#3730a3}.badge.done{background:#dcfce7;color:#166534}.badge.overdue{background:#fee2e2;color:#991b1b}.empty{padding:20px;text-align:center;color:var(--muted);font-size:13px;border:1px dashed #cbd5e1;border-radius:13px}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:0 15px 25px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#172554;color:#fff;padding:11px 16px;border-radius:12px;box-shadow:0 8px 25px #0002;display:none;z-index:20;font-size:13px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.stats{grid-template-columns:repeat(3,1fr)}main{padding-left:22px;padding-right:22px}.project{padding:16px}}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.datepill{font-size:10px}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:20px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+
+.important-box{background:linear-gradient(135deg,#fff7ed,#fff1f2 55%,#fefce8);border:1px solid #fed7aa;border-radius:19px;padding:15px;margin:0 0 18px;box-shadow:0 7px 20px #9a34120c}
+.important-title{display:flex;align-items:center;gap:10px;margin:0 0 5px}.important-title .alerticon{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:#ffedd5;font-size:21px}
+.important-title h2{margin:0;font-size:19px;color:#9a3412}.important-desc{font-size:12px;color:#7c5142;margin:0 0 12px}
+.important-list{display:grid;gap:8px}.important-item{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:10px 11px;background:#fff;border:1px solid #fed7aa;border-radius:12px}
+.important-item .itemname{font-size:13px;font-weight:800}.important-item .subname{font-size:11px;color:#7c5142;margin-top:3px}
+.important-item button{border:0;border-radius:10px;background:#9a3412;color:#fff;padding:9px 10px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+@media(min-width:700px){.important-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="topline">
+    <div><div class="brand">✦ TWINVERSE <span style="color:#fde68a">DIARY</span></div><div class="tag">Projects • Follow-ups • Progress</div></div>
+    <div class="datepill" id="todayPill">📅 Today</div>
+  </div>
+  <div class="hero"><h1>Turn every follow-up<br>into forward progress.</h1><p>Your daily project and sales diary. Open a project, add your next action, and track progress day by day.</p></div>
+</header>
+<main>
+  <section id="home">
+    <section class="important-box" aria-labelledby="importantHeading">
+      <div class="important-title"><div class="alerticon">🚨</div><div><h2 id="importantHeading">Very Important Work</h2><div style="font-size:11px;color:#9a3412">Priority list • Open any item to add a follow-up</div></div></div>
+      <p class="important-desc">Keep these key responsibilities visible at the top of your daily diary.</p>
+      <div id="importantList" class="important-list"></div>
+    </section>
+    <div class="stats">
+      <div class="stat"><b id="totalCount">0</b><span>FOLLOW-UP RECORDS</span></div>
+      <div class="stat"><b id="dueCount">0</b><span>DUE / OVERDUE</span></div>
+      <div class="stat"><b id="doneCount">0</b><span>COMPLETED</span></div>
+    </div>
+    <div class="toolbar">
+      <input id="search" class="search" placeholder="🔎 Search projects or subpoints…" aria-label="Search projects">
+      <button class="btn secondary" onclick="showAll()">Show all</button>
+      <button class="btn teal" onclick="openGeneral()">＋ Quick follow-up</button>
+    </div>
+    <div id="sections"></div>
+  </section>
+
+  <section id="followPage" class="page">
+    <div class="backrow"><button class="btn secondary" onclick="goHome()">← All projects</button><button class="btn secondary" onclick="openGeneral()">＋ Quick follow-up</button></div>
+    <div class="pagecard">
+      <h2 id="pageTitle">Follow-up</h2><div class="crumb" id="pageCrumb"></div>
+      <form id="entryForm">
+        <input type="hidden" id="editId">
+        <div class="formgrid">
+          <div class="field"><label for="entryDate">Entry date</label><input type="date" id="entryDate" required></div>
+          <div class="field"><label for="dueDate">Next follow-up date</label><input type="date" id="dueDate"></div>
+          <div class="field full"><label for="task">Task / follow-up subject</label><input id="task" placeholder="e.g. Contact client, send proposal…" required></div>
+          <div class="field"><label for="status">Status</label><select id="status"><option>Not Started</option><option>In Progress</option><option>Waiting for Reply</option><option>Follow-up Due</option><option>Completed</option><option>On Hold</option><option>Cancelled</option></select></div>
+          <div class="field"><label for="progress">Work progress</label><select id="progress"><option value="0">0% — Not started</option><option value="25">25% — Started</option><option value="50">50% — Halfway</option><option value="75">75% — Nearly done</option><option value="100">100% — Complete</option></select></div>
+          <div class="field"><label for="priority">Priority</label><select id="priority"><option>Medium</option><option>High</option><option>Low</option></select></div>
+          <div class="field"><label for="contact">Contact / responsible person</label><input id="contact" placeholder="Name, customer or owner"></div>
+          <div class="field"><label for="value">Potential value (₹), if applicable</label><input id="value" type="number" min="0" step="0.01" placeholder="0"></div>
+          <div class="field full"><label for="notes">Notes / outcome of last contact</label><textarea id="notes" placeholder="What happened? What was agreed?"></textarea></div>
+          <div class="field full"><label for="nextAction">Next action</label><textarea id="nextAction" placeholder="What exactly needs to happen next?"></textarea></div>
+          <div class="field full"><label class="checkrow"><input id="remind" type="checkbox"> Mark this as an important follow-up</label></div>
+        </div>
+        <div class="pageactions"><button class="btn" type="submit">💾 Save follow-up</button><button class="btn secondary" type="button" onclick="resetForm()">Clear form</button></div>
+      </form>
+    </div>
+    <div class="savedhead"><h3>Saved follow-ups</h3><span id="recordCount" class="badge">0 records</span></div>
+    <div id="records"></div>
+  </section>
+</main>
+<footer>Local-first prototype • Entries are saved in this browser on this device. Export backups regularly.</footer>
+<div class="toast" id="toast"></div>
+<script>
+const groups = [
+ {id:"1",name:"Website",emoji:"🌐",items:[
+  ["1.1","Blockchain","⛓️"],
+  ["1.2","Explorers","🧭",[
+   ["1.2.1","Tokens","🪙"],["1.2.2","Players","🧑‍🚀"],["1.2.3","Art","🎨"],["1.2.4","Twinverse NFT gallery","🖼️"],["1.2.5","Empty — reserved","➕"],["1.2.6","Empty — reserved","➕"]
+  ]],
+  ["1.3","Games & farms","🌱"],["1.4","NFT images","🖼️"],
+  ["1.5","B2B queries","🤝",[["1.5.1","B2B solutions","💡"]]],
+  ["1.6","Poetry","✍️"],
+  ["1.7","Art submissions","🎨",[["1.7.1","Art promotions","📣"]]],
+  ["1.8","NFT submissions","🪙",[["1.8.1","NFT promotions","🚀"]]],
+  ["1.9","Virtual city","🏙️"],
+  ["1.10","Twinverse books","📚",[["1.10.1","Reseller books","📦"]]],
+  ["1.11","DEX for verses","📜",[["1.11.1","DEX for quotes","💬"],["1.11.2","DEX for popular names","🔤"],["1.11.3","DEX for posts","📝"],["1.11.4","DEX for tweets","🐦"],["1.11.5","Words","🔠"]]],
+  ["1.12","Sanatans section","🪷"],["1.13","Trade AI prediction simulator","📈"],["1.14","Game reward tokens","🎁"],
+  ["1.15","Project roadmap","🗺️"],["1.16","Communities & forums","👥"],["1.17","Positive media research","🔬"],
+  ["1.18","Social media support","📱"],["1.19","SEO services","🔎"],["1.20","Digital marketing","📣"],["1.21","GAEKE Community","🌿"]
+ ]},
+ {id:"2",name:"Book",emoji:"📚",items:[["2.1","Books in writing","✍️"],["2.2","Books published","📗"],["2.3","Books proposals","📑"]]},
+ {id:"3",name:"Other MLM",emoji:"🌟",items:[["3.1","Emo","💜"],["3.2","Gold committees","🪙"]]},
+ {id:"4",name:"Real Estate",emoji:"🏡",items:[["4.1","Dharatal","🌳"],["4.2","Jati Kalan","🏘️"],["4.4","Misc","📍"],["4.5","Virtual lands","🌐"],["4.6","Twinverse actual land for story blocks","🗺️"]]}
+];
+let current = {code:"",name:"",parent:""};
+let entries = loadEntries();
+function loadEntries(){try{return JSON.parse(localStorage.getItem("twinverseDiaryEntries")||"[]")}catch(e){return []}}
+function persist(){try{localStorage.setItem("twinverseDiaryEntries",JSON.stringify(entries));return true}catch(e){toast("Could not save. Export your data or free device storage.");return false}}
+function allItems(){let out=[];groups.forEach(g=>g.items.forEach(it=>{out.push({code:it[0],name:it[1],emoji:it[2],parent:g.name});(it[3]||[]).forEach(s=>out.push({code:s[0],name:s[1],emoji:s[2],parent:g.name+" › "+it[1]}))}));return out}
+const itemMap=Object.fromEntries(allItems().map(x=>[x.code,x]));
+const importantWork = [
+ {code:"IW1",name:"Waste management",emoji:"♻️",parent:"Very Important Work"},
+ {code:"IW2",name:"YouTube video",emoji:"▶️",parent:"Very Important Work",subs:[
+  {code:"IW2.1",name:"TWINGO official channel",emoji:"🎬"},
+  {code:"IW2.2",name:"Twinverse Goshen Research Media channel",emoji:"🔭"},
+  {code:"IW2.3",name:"Other channels",emoji:"📺"}]},
+ {code:"IW3",name:"Marketing works",emoji:"📣",parent:"Very Important Work",subs:[
+  {code:"IW3.1",name:"Real estate",emoji:"🏡"},{code:"IW3.2",name:"MLM",emoji:"🤝"},{code:"IW3.3",name:"Emo",emoji:"💜"}]},
+ {code:"IW4",name:"Books",emoji:"📚",parent:"Very Important Work",subs:[
+  {code:"IW4.1",name:"Intro book",emoji:"📖"},{code:"IW4.2",name:"New 50-page book",emoji:"📝"},{code:"IW4.3",name:"Reseller books",emoji:"📦"}]},
+ {code:"IW5",name:"Social media posts",emoji:"📱",parent:"Very Important Work",subs:[
+  {code:"IW5.1",name:"Facebook",emoji:"📘"},{code:"IW5.2",name:"LinkedIn",emoji:"💼"},{code:"IW5.3",name:"Instagram",emoji:"📸"},{code:"IW5.4",name:"YouTube",emoji:"▶️"}]}
+];
+importantWork.forEach(x=>{itemMap[x.code]=x;(x.subs||[]).forEach(s=>itemMap[s.code]={...s,parent:"Very Important Work › "+x.name})});
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function today(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+document.getElementById("todayPill").textContent="📅 "+new Date().toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short",year:"numeric"});
+function renderSections(filter=""){
+ const root=document.getElementById("sections");root.innerHTML="";
+ groups.forEach(g=>{
+  let filtered=g.items.map(it=>({it,subs:(it[3]||[]).filter(s=>(s.join(" ")+" "+g.name).toLowerCase().includes(filter.toLowerCase()))}))
+   .filter(x=>(x.it.slice(0,3).join(" ")+" "+g.name).toLowerCase().includes(filter.toLowerCase())||x.subs.length);
+  if(!filtered.length)return;
+  let section=document.createElement("section");section.className="section";
+  section.innerHTML=`<div class="sectionhead"><div class="num">${g.id}</div><div><h2>${esc(g.emoji+" "+g.name)}</h2><p>${g.items.length} main project areas</p></div></div><div class="grid"></div>`;
+  let grid=section.querySelector(".grid");
+  filtered.forEach(({it,subs})=>{
+   let card=document.createElement("article");card.className="project";
+   card.innerHTML=`<div class="projecttop"><div class="emoji">${esc(it[2])}</div><div><h3>${esc(it[0]+" "+it[1])}</h3><small>${(it[3]||[]).length?((it[3]||[]).length+" subpoints"): "Open follow-up page"}</small></div></div><button class="open" onclick="openItem('${esc(it[0])}')"><span>Open follow-up</span><span>↗</span></button>`;
+   if(it[3]&&it[3].length){
+    let list=document.createElement("div");list.className="sublist";
+    it[3].filter(s=>!filter||(s.join(" ")+" "+it[1]+" "+g.name).toLowerCase().includes(filter.toLowerCase())).forEach(s=>{
+      let b=document.createElement("button");b.className="subbtn";b.innerHTML=`<span class="label">${esc(s[0]+" "+s[1])}</span><span class="arrow">→</span>`;b.onclick=()=>openItem(s[0]);list.appendChild(b)
+    });card.appendChild(list)
+   }
+   grid.appendChild(card)
+  });
+  root.appendChild(section)
+ })
+}
+function renderImportantWork(){
+ const root=document.getElementById("importantList"); if(!root)return; root.innerHTML="";
+ importantWork.forEach(it=>{
+  const row=document.createElement("div");row.className="important-item";
+  row.innerHTML=`<div><div class="itemname">${esc(it.emoji+" "+it.name)}</div><div class="subname">${(it.subs||[]).length?((it.subs||[]).length+" follow-up areas"):"Priority follow-up"}</div></div><button onclick="openItem('${it.code}')">Follow up →</button>`;
+  root.appendChild(row);
+  (it.subs||[]).forEach(s=>{
+   const sub=document.createElement("div");sub.className="important-item";
+   sub.innerHTML=`<div><div class="itemname">${esc(s.emoji+" "+s.code+" "+s.name)}</div><div class="subname">Under ${esc(it.name)}</div></div><button onclick="openItem('${s.code}')">Follow up →</button>`;
+   root.appendChild(sub);
+  });
+ });
+}
+function openItem(code){let it=itemMap[code];if(!it)return;current={code:it.code,name:it.name,parent:it.parent};document.getElementById("home").classList.add("hidden");document.getElementById("followPage").classList.add("active");document.getElementById("pageTitle").textContent=it.emoji+" "+it.code+" "+it.name;document.getElementById("pageCrumb").textContent=it.parent+" / "+it.name;resetForm();renderRecords();window.scrollTo(0,0)}
+function openGeneral(){current={code:"GENERAL",name:"Quick follow-up",parent:"General"};document.getElementById("home").classList.add("hidden");document.getElementById("followPage").classList.add("active");document.getElementById("pageTitle").textContent="⚡ Quick follow-up";document.getElementById("pageCrumb").textContent="General / Unassigned task";resetForm();renderRecords();window.scrollTo(0,0)}
+function goHome(){document.getElementById("followPage").classList.remove("active");document.getElementById("home").classList.remove("hidden");refreshStats();window.scrollTo(0,0)}
+function resetForm(){document.getElementById("entryForm").reset();document.getElementById("editId").value="";document.getElementById("entryDate").value=today();document.getElementById("progress").value="0"}
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2300)}
+document.getElementById("entryForm").addEventListener("submit",e=>{
+ e.preventDefault();let id=document.getElementById("editId").value;
+ let item=current.code==="GENERAL"?{code:"GENERAL",name:"Quick follow-up",parent:"General"}:itemMap[current.code];
+ let data={id:id||String(Date.now())+"-"+Math.random().toString(36).slice(2,7),code:item.code,name:item.name,parent:item.parent,date:document.getElementById("entryDate").value,due:document.getElementById("dueDate").value,task:document.getElementById("task").value.trim(),status:document.getElementById("status").value,progress:Number(document.getElementById("progress").value),priority:document.getElementById("priority").value,contact:document.getElementById("contact").value.trim(),value:Number(document.getElementById("value").value||0),notes:document.getElementById("notes").value.trim(),nextAction:document.getElementById("nextAction").value.trim(),important:document.getElementById("remind").checked,updated:new Date().toISOString()};
+ if(id){let ix=entries.findIndex(x=>x.id===id);if(ix>=0)entries[ix]=data}else entries.unshift(data);
+ persist();renderRecords();refreshStats();resetForm();toast("Follow-up saved on this device")
+});
+function renderRecords(){
+ let list=entries.filter(e=>e.code===current.code).sort((a,b)=>(a.due||"9999").localeCompare(b.due||"9999")||b.date.localeCompare(a.date));
+ document.getElementById("recordCount").textContent=list.length+" record"+(list.length===1?"":"s");
+ let root=document.getElementById("records");root.innerHTML="";
+ if(!list.length){root.innerHTML='<div class="empty">No follow-ups yet for this page.<br>Use the form above to add your first entry.</div>';return}
+ list.forEach(e=>{
+  let overdue=e.due&&e.due<today()&&!["Completed","Cancelled"].includes(e.status);
+  let div=document.createElement("article");div.className="record";
+  div.innerHTML=`<div class="recordtop"><div><h4>${esc(e.task)}</h4><div style="font-size:11px;color:#64748b">${esc(e.date||"No entry date")}${e.due?" · Next: "+esc(e.due):""}</div></div><span class="badge ${e.status==="Completed"?"done":overdue?"overdue":""}">${esc(overdue?"OVERDUE":e.status)}</span></div>
+   <p><b>Progress:</b> ${e.progress}% &nbsp; <b>Priority:</b> ${esc(e.priority)}${e.important?" &nbsp; ⭐ Important":""}</p>
+   ${e.contact?`<p><b>Contact:</b> ${esc(e.contact)}</p>`:""}${e.value?`<p><b>Potential value:</b> ₹${Number(e.value).toLocaleString("en-IN")}</p>`:""}
+   ${e.notes?`<p><b>Notes:</b> ${esc(e.notes)}</p>`:""}${e.nextAction?`<p><b>Next action:</b> ${esc(e.nextAction)}</p>`:""}
+   <div class="pageactions"><button class="btn secondary" onclick="editEntry('${e.id}')">✏️ Edit</button><button class="btn teal" onclick="markDone('${e.id}')">✓ Complete</button><button class="btn danger" onclick="deleteEntry('${e.id}')">Delete</button></div>`;
+  root.appendChild(div)
+ })
+}
+function editEntry(id){let e=entries.find(x=>x.id===id);if(!e)return;document.getElementById("editId").value=e.id;for(let [field,key] of [["entryDate","date"],["dueDate","due"],["task","task"],["status","status"],["progress","progress"],["priority","priority"],["contact","contact"],["value","value"],["notes","notes"],["nextAction","nextAction"],["remind","important"]]){let el=document.getElementById(field);if(el.type==="checkbox")el.checked=!!e[key];else el.value=e[key]??""}document.getElementById("pageTitle").textContent="✏️ Edit follow-up";window.scrollTo(0,0)}
+function markDone(id){let e=entries.find(x=>x.id===id);if(e){e.status="Completed";e.progress=100;e.updated=new Date().toISOString();persist();renderRecords();refreshStats();toast("Marked completed")}}
+function deleteEntry(id){if(!confirm("Delete this follow-up record? This cannot be undone."))return;entries=entries.filter(x=>x.id!==id);persist();renderRecords();refreshStats();toast("Record deleted")}
+function refreshStats(){document.getElementById("totalCount").textContent=entries.length;document.getElementById("dueCount").textContent=entries.filter(e=>e.due&&e.due<=today()&&!["Completed","Cancelled"].includes(e.status)).length;document.getElementById("doneCount").textContent=entries.filter(e=>e.status==="Completed").length}
+document.getElementById("search").addEventListener("input",e=>renderSections(e.target.value));
+function showAll(){document.getElementById("search").value="";renderSections()}
+renderImportantWork();renderSections();refreshStats();
+</script>
+</body>
+</html>
